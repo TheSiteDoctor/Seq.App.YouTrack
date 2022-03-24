@@ -99,6 +99,11 @@ namespace Seq.App.YouTrack
                 var formattedSummary = this._summaryTemplate.Value(payload);
                 if (this.HtmlDecodeSummary) formattedSummary = HttpUtility.HtmlDecode(formattedSummary);
 
+                if (this.SummaryMaximumLength > 0 && formattedSummary.Length > this.SummaryMaximumLength)
+                {
+                    formattedSummary = $"{formattedSummary.Substring(0, this.SummaryMaximumLength - 3)}...";
+                }
+
                 var formattedDescription = this._bodyTemplate.Value(payload);
                 if (this.HtmlDecodeDescription) formattedDescription = HttpUtility.HtmlDecode(formattedDescription);
 

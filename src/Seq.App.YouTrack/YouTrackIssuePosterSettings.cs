@@ -110,5 +110,11 @@ namespace Seq.App.YouTrack
 		[SeqAppSetting(DisplayName = "HTML Decode - Description", IsOptional = true, HelpText = "Decode HTML in description when creating an issue", InputType = SettingInputType.Checkbox)]
 		public bool HtmlDecodeDescription { get; set; }
 
+		/// <summary>
+		/// Gets or sets the maximum length for a summary.
+		/// </summary>
+		[SeqAppSetting(DisplayName = "Summary Maximum Length", HelpText = "The maximum length of issue summaries (0 = unlimited)", InputType = SettingInputType.Integer)]
+		public int SummaryMaximumLength { get; set; }
+
 	}
 }
