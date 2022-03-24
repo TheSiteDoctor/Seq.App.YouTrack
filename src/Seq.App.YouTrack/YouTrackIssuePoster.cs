@@ -96,8 +96,14 @@ namespace Seq.App.YouTrack
 
                 var projectId = this._projectIdTemplate.Value(payload);
 
-                issue.Summary = this._summaryTemplate.Value(payload);
-                issue.Description = this._bodyTemplate.Value(payload);
+                var formattedSummary = this._summaryTemplate.Value(payload);
+                if (this.HtmlDecodeSummary) formattedSummary = HttpUtility.HtmlDecode(formattedSummary);
+
+                var formattedDescription = this._bodyTemplate.Value(payload);
+                if (this.HtmlDecodeDescription) formattedDescription = HttpUtility.HtmlDecode(formattedDescription);
+
+                issue.Summary = formattedSummary;
+                issue.Description = formattedDescription;
                 dynamic issueDynamic = issue.AsDynamic();
                 issueDynamic.Type = this.YouTrackIssueType.IsSet() ? this.YouTrackIssueType : "Auto-reported Exception";
                 issueDynamic.IsMarkdown = true;
