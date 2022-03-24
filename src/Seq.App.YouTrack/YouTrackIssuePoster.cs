@@ -255,7 +255,7 @@ namespace Seq.App.YouTrack
                     { "$Message", HttpUtility.HtmlDecode(@event.Data.RenderedMessage) },
                     { "$Exception", @event.Data.Exception },
                     { "$Properties", properties },
-                    { "$EventType", $"${@event.EventType:X8}" },
+                    { "$EventType", $"{@event.EventType:X8}" },
                     { "$Instance", this.Host.InstanceName },
                     { "$ServerUri", Host.BaseUri },
                     { "$YouTrackProjectId", this.ProjectId }
