@@ -113,7 +113,7 @@ namespace Seq.App.YouTrack
 		/// <summary>
 		/// Gets or sets the maximum length for a summary.
 		/// </summary>
-		[SeqAppSetting(DisplayName = "Summary Maximum Length", HelpText = "The maximum length of issue summaries (0 = unlimited)", InputType = SettingInputType.Integer)]
+		[SeqAppSetting(DisplayName = "Summary Maximum Length", IsOptional = true, HelpText = "The maximum length of issue summaries (0 = unlimited)", InputType = SettingInputType.Integer)]
 		public int SummaryMaximumLength { get; set; }
 
 	}
